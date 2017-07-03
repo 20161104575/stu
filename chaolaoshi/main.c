@@ -18,39 +18,37 @@ int main()
     fp1=fopen("C:\\Users\\lenovo\\Desktop\\chaolaoshi\\GPS170510.txt","r");
     fp2=fopen("C:\\Users\\lenovo\\Desktop\\chaolaoshi\\GPS.CSV","w+");
 if(fp1==NULL)
-    printf("´ò¿ªÎÄ¼ş´íÎó");
+    printf("æ‰“å¼€æ–‡ä»¶é”™è¯¯");
     else
-        fprintf(fp2,"ÈÕÆÚ ,Ê±¼ä ,Î¬¶È ,¾­¶È ,º£°Î ,ËÙ¶È ,ÎÀĞÇÊıÁ¿ ,·½Ïò\n");
+        fprintf(fp2,"æ—¥æœŸ ,æ—¶é—´ ,ç»´åº¦ ,ç»åº¦ ,æµ·æ‹” ,é€Ÿåº¦ ,å«æ˜Ÿæ•°é‡ ,æ–¹å‘\n");
 
 while(!feof(fp1))
-{
-    {
-        
+{       
         fscanf(fp1,"%s%s",mat,num);
         
-        for(i=0; i<2; i++)  /*ÈÕÆÚ*/ 
+        for(i=0; i<2; i++)  /*æ—¥æœŸ*/ 
             date[i]=mat[i+55];
             date[2]='\0';
-        fprintf(fp2,"20%sÄê",date);
+        fprintf(fp2,"20%så¹´",date);
         
         for(i=0; i<2; i++)
             date[i]=mat[i+51];
             date[2]='\0';
-        fprintf(fp2,"%sÔÂ",date);
+        fprintf(fp2,"%sæœˆ",date);
         
         for(i=0; i<2; i++)
             date[i]=mat[i+53];
             date[2]='\0';
-        fprintf(fp2,"%sÈÕ,",date);
+        fprintf(fp2,"%sæ—¥,",date);
         
         {
             
-        for(i=0; i<2; i++)   /*Ê±¼ä*/ 
+        for(i=0; i<2; i++)   /*æ—¶é—´*/ 
             time[i]=mat[i+7];
             math1=10*(time[0]-'0');
             math2=1*(time[1]-'0');
             math=math1+math2+8;
-        fprintf(fp2,"%dĞ¡Ê±",math);
+        fprintf(fp2,"%dç‚¹",math);
         
         for(i=0; i<2; i++)
             time[i]=mat[i+9];
@@ -58,7 +56,7 @@ while(!feof(fp1))
             math2=1*(time[1]-'0');
             math=math1+math2;
             time[2]='\0';
-        fprintf(fp2,"%d·Ö",math);
+        fprintf(fp2,"%dåˆ†",math);
   
         for(i=0; i<2;i++)
             time[i]=mat[i+11];
@@ -66,36 +64,36 @@ while(!feof(fp1))
             math2=1*(time[1]-'0');
             math=math1+math2;
             time[2]='\0';
-        fprintf(fp2,"%dÃë,",math);
+        fprintf(fp2,"%dç§’,",math);
         }
         
-        for(i=0; i<2; i++)    /*Î³¶È*/ 
+        for(i=0; i<2; i++)    /*çº¬åº¦*/ 
             lat[i]=mat[i+16];
             lat[2]='\0';
         fprintf(fp2,"N %s.",lat);
         for(i=0; i<6; i++)
             lat[i]=mat[i+18];
             lat[6]='\0';
-        fprintf(fp2,"%s¶È,",lat);
+        fprintf(fp2,"%såº¦,",lat);
         
         
-        for(i=0; i<3; i++)    /*¾­¶È*/ 
+        for(i=0; i<3; i++)    /*ç»åº¦*/ 
             longitude[i]=mat[i+27];
             longitude[3]='\0';
         fprintf(fp2,"E %s.",longitude);
         for(i=0; i<9; i++)
             longitude[i]=mat[i+30];
             longitude[6]='\0';
-        fprintf(fp2,"%s¶È,",longitude);
+        fprintf(fp2,"%såº¦,",longitude);
         
         
-        for(i=0; i<4; i++)    /*º£°Î*/ 
+        for(i=0; i<4; i++)    /*æµ·æ‹”*/ 
             high[i]=num[i+43];
             high[4]='\0';
         fprintf(fp2,"%sm,",high);
         
         
-        for(i=0; i<5; i++)    /*ËÙ¶È*/
+        for(i=0; i<5; i++)    /*é€Ÿåº¦*/
             speed[i]=mat[i+39];
             math1=100*(speed[0]-'0');
             math2=10*(speed[1]-'0');
@@ -106,7 +104,7 @@ while(!feof(fp1))
         fprintf(fp2,"%.4fkm/s,",spe);
         
         
-        for(i=0; i<2; i++)   /*ÎÀĞÇÊıÁ¿*/ 
+        for(i=0; i<2; i++)   /*å«æ˜Ÿæ•°é‡*/ 
             snum[i]=num[i+39];
             math1=10*(snum[0]-'0');
             math2=1*(snum[1]-'0');
@@ -115,11 +113,10 @@ while(!feof(fp1))
         fprintf(fp2,"%d,",math);
         
         
-        for(i=0; i<5; i++)    /*º½Ïò*/ 
+        for(i=0; i<5; i++)    /*èˆªå‘*/ 
             dir[i]=mat[i+45];
             dir[5]='\0';
-        fprintf(fp2,"%s¶È\n",dir);
-    }
+        fprintf(fp2,"%såº¦\n",dir);
 }
     fclose(fp1);
     fclose(fp2);
