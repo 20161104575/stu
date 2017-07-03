@@ -40,8 +40,6 @@ while(!feof(fp1))
             date[i]=mat[i+53];
             date[2]='\0';
         fprintf(fp2,"%s日,",date);
-        
-        {
             
         for(i=0; i<2; i++)   /*时间*/ 
             time[i]=mat[i+7];
@@ -65,7 +63,6 @@ while(!feof(fp1))
             math=math1+math2;
             time[2]='\0';
         fprintf(fp2,"%d秒,",math);
-        }
         
         for(i=0; i<2; i++)    /*纬度*/ 
             lat[i]=mat[i+16];
@@ -76,7 +73,6 @@ while(!feof(fp1))
             lat[6]='\0';
         fprintf(fp2,"%s度,",lat);
         
-        
         for(i=0; i<3; i++)    /*经度*/ 
             longitude[i]=mat[i+27];
             longitude[3]='\0';
@@ -86,12 +82,10 @@ while(!feof(fp1))
             longitude[6]='\0';
         fprintf(fp2,"%s度,",longitude);
         
-        
         for(i=0; i<4; i++)    /*海拔*/ 
             high[i]=num[i+43];
             high[4]='\0';
         fprintf(fp2,"%sm,",high);
-        
         
         for(i=0; i<5; i++)    /*速度*/
             speed[i]=mat[i+39];
@@ -102,8 +96,7 @@ while(!feof(fp1))
             spe=(math1+math2+math3+spe1)*1.852;
             speed[5]='\0';
         fprintf(fp2,"%.4fkm/s,",spe);
-        
-        
+       
         for(i=0; i<2; i++)   /*卫星数量*/ 
             snum[i]=num[i+39];
             math1=10*(snum[0]-'0');
@@ -111,7 +104,6 @@ while(!feof(fp1))
             math=math1+math2;
             snum[2]='\0';
         fprintf(fp2,"%d,",math);
-        
         
         for(i=0; i<5; i++)    /*航向*/ 
             dir[i]=mat[i+45];
